@@ -1,11 +1,11 @@
 <?php
 	
-	 $file_info = $_FILES['Picfile'];
-	 $file_path = 'Picfile/'.$file_info['name'];
+	 $file = $_FILES['Picfile'];
+	 $file_path = 'Picfile/'.$file['name'];
 
 	
 
-	if(move_uploaded_file($file_info['tmp_name'], $file_path))
+	if(move_uploaded_file($file['tmp_name'], $file_path))
 	{
 		echo " successfully Uploaded";
 	}
