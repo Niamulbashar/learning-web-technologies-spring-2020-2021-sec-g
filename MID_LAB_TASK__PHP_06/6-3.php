@@ -1,19 +1,5 @@
 <?php
 	
-	if(isset($_POST['Submit']))
-	{
-		
-		$extension  = strtolower(pathinfo($_POST['P'], PATHINFO_EXTENSION));
-        
-		if ( $extension =='jpg' || $extension =='jpeg'  || $extension =='png' )
-	    {
-			
-		}
-        else {
-            echo " The picture format is invalid !!";
-        }
-	   
-	}
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +8,12 @@
 	<title>Profile Picture</title>
 </head>
 <body>
-	<form method="POST" action="">
+	<form method="POST" action="picture_file_check.php" enctype="multipart/form-data">
 		<fieldset>
 			<legend> <b>Profile Picture</b></legend>
 				<table>
 				<tr>
-					<td> <input type="file" name="P"/> 
+					<td> <input type="file" name="Picfile"/> 
 					<br/> </td>
 				</tr>
 			</table>
