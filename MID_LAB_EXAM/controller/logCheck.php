@@ -2,16 +2,16 @@
 
 	session_start();
 
-	if(isset($_POST['submit'])){
+	if(isset($_POST['login'])){
 
-		$username = $_POST['username'];
+		$name = $_POST['name'];
 		$password = $_POST['password'];
 		
-		$user = ['username'=> $username, 'password'=> $password, 'email'=>$email];
+		$user = ['name'=> $name, 'password'=> $password, 'id'=>$id];
 		$formdata = array(
-			'username'=> $_POST["username"],
+			'name'=> $_POST["name"],
 			'password'=> $_POST["password"],
-			'email'=> $_POST["email"]
+			'id'=> $_POST["id"]
 			
 		 );
 
@@ -20,16 +20,16 @@
 		//$data = file_get_contents('../model/data.json');
 		$existingdata[]= json_decode($userData, true);
       
-		if($username == "" || $password == ""){
+		if($name == "" || $password == ""){
 			echo "null input...";
 		}else{
 
 			foreach ($existingdata as $key => $value) {
 				foreach ($value as $k => $v) {	
 			 
-			if($v['username'] == $_POST['username'] && $v['password'] == $_POST['password']){
+			if($v['name'] == $_POST['name'] && $v['password'] == $_POST['password']){
 				$_SESSION['flag'] = true;
-				//print_r($value['username']);
+				//print_r($value['name']);
 								
 				$_SESSION['current_user'] =$formdata;
 				header('location: ../view/home.php');
